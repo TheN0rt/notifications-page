@@ -1,0 +1,229 @@
+$white: hsl(0, 0%, 100%);
+$veryLightGrayBlue: hsl(210, 60%, 98%);
+$lightGrayBlue1: hsl(216, 71%, 97%);
+$lightGrayBlue2: hsl(205, 33%, 90%);
+$grayishBlue: hsl(219, 14%, 63%);
+$darkGrayishBlue: hsl(219, 12%, 42%);
+$veryDarkBlue: hsl(224, 21%, 14%);
+$red: hsl(1, 90%, 64%);
+$blue: hsl(219, 85%, 26%);
+
+@mixin after {
+   &::after{
+      content: '🔴';
+   }
+}
+
+*{
+   padding: 0;
+   margin: 0;
+}
+
+html, body{
+   min-height: 100vh;
+   min-width: 100vw;
+   font-size: 16px;
+   line-height: 1.5;
+   font-family: 'Plus Jakarta Sans', sans-serif;
+   display: flex;
+   background-color: $lightGrayBlue1;
+}
+
+a{
+   text-decoration: none;
+   color: #3f5680;
+   font-weight: 800;
+}
+
+li{
+   list-style: none;
+}
+
+main{
+   max-width: 40%;
+   background-color: $white;
+   margin: auto;
+   border-radius: 10px;
+
+   .notification{
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+
+      .notification__header{
+         display: flex;
+         flex-direction: row;
+         justify-content: space-between;
+         align-items: center;
+         margin-bottom: 20px;
+
+
+         .notification__count{
+            display: flex;
+            flex-direction: row;
+            gap: 10px;
+            align-items: center;
+
+            h1{
+
+            }
+
+            #notif-count{
+               padding: 1px 10px;
+               color: $white;
+               background-color: $blue;
+               border-radius: 5px;
+            }
+         }
+
+         .notification__read{
+            color: $darkGrayishBlue;
+
+            &:hover{
+               cursor: pointer;
+               text-decoration: underline;
+            }
+         }
+
+      }
+
+      .notification__text-block{
+         display: flex;
+         flex-direction: column;
+
+         ul{
+
+            .new{
+               background-color: $lightGrayBlue1;
+               cursor: pointer;
+               
+               .notification__section{
+
+                  .notification__content{
+
+                     .user__notification{
+                        @include after;
+                     }
+                  }
+               }
+            }
+
+            li{
+               margin: 10px 0;
+               border-radius: 10px;
+
+               .notification__section{
+                  display: flex;
+                  flex-direction: column;
+
+                  .message{
+                     border: 1px solid $lightGrayBlue2;
+                     padding: 20px;
+                     border-radius: 5px;
+                     color: $darkGrayishBlue;
+                     max-width: 80%;
+                     align-self: flex-end;
+
+                     &:hover{
+                        background-color: $lightGrayBlue1;
+                        cursor: pointer;
+                     }
+                  }
+               }
+
+               .user{
+                  display: flex;
+                  // justify-content: space-around;
+                  gap: 20px;
+                  align-items: center;
+                  flex-direction: row;
+                  padding: 10px;
+
+                     .user__img{
+                        max-width: 10%;
+                     }
+
+                     .notification__content{
+                        display: flex;
+                        flex-direction: column;
+
+                        .user__notification{
+                           color: $grayishBlue;
+                           
+                           max-width: 100%;
+
+                           .user-name{
+                              font-weight: 800;
+                              color: black;
+                           }
+
+                           .post{
+                              color: $darkGrayishBlue;
+                              font-weight: 800;
+                           }
+
+                           .user-name, .goup, .post{
+                              cursor: pointer;
+                              &:hover{
+                                 color: $blue;
+                              }
+                           }
+                        }
+
+                        .notification__time{
+                           color: $grayishBlue;
+                        }
+                     }
+               }
+
+               .comm__picture{
+                  display: flex;
+                  flex-direction: row;
+                  justify-content: space-between;
+                  align-items: center;
+
+                  .comm-img{
+                     max-width: 10%;
+                  }
+               }
+            }
+         }
+      }
+   }
+}
+
+
+
+@media (max-width: 1080px){
+   main{
+      max-width: 60%;
+   }
+}
+
+@media (max-width: 770px){
+   main{
+      max-width: 70%;
+   }
+}
+
+@media (max-width: 660px){
+   main{
+      max-width: 75%;
+   }
+}
+
+@media (max-width: 560px){
+   main{
+      max-width: 90%;
+   }
+}
+
+@media (max-width: 470px){
+   main{
+      max-width: 100%;
+
+      .notification{
+         padding: 10px 5px;
+      }
+   }
+}
